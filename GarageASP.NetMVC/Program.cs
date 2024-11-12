@@ -1,4 +1,6 @@
+using GarageASP.NetMVC.Interfaces;
 using GarageASP.NetMVC.Models;
+using GarageASP.NetMVC.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<GarageManagementContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("GMConnection")));
+builder.Services.AddScoped<IGarageManagement, GarageRepository>();
 
 var app = builder.Build();
 
@@ -27,6 +30,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Voitures}/{action=Index}/{id?}");
 
 app.Run();
