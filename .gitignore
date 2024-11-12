@@ -1,0 +1,61 @@
+# Fichiers générés par le build
+bin/
+obj/
+
+# Fichiers utilisateur de Visual Studio
+.vscode/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Fichiers de configuration
+appsettings.*.json
+secrets.json
+
+# Logs
+*.log
+logs/
+
+# Fichiers de publication
+.publish/
+
+# Packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Fichiers de base de données
+*.mdf
+*.ldf
+
+# Fichiers de débogage
+*.pidb
+*.booproj
+*.pdb
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.cache
+
+# Fichiers de dépendances
+node_modules/
+bower_components/
+
+# Fichiers générés par le Runtime
+*.dll
+*.exe
+*.db
+
+# Fichiers des IDE
+.idea/
+*.sln.ide
+
+# Autres fichiers spécifiques au projet
+*.generated.cs
