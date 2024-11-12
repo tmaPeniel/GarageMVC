@@ -1,0 +1,45 @@
+﻿@model List<Voiture>
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Dashboard voitures</h1>
+            <p class="lead text-body-secondary">Application de gestion de voiture pour garagiste.</p>
+            <p>
+                <a href="#" class="btn btn-primary my-2">Ajouter une nouvelle voiture</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<div class=" container">
+    <h2 class="fw-light py-4 text-center">Voitures recus</h2>
+</div>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Immatriculation</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Modele</th>
+            <th scope="col">Etat</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Immatriculation</th>
+                <td>@item.Marque</td>
+                <td>@item.Modele</td>
+                <td>@item.Etat</td>
+                <td>
+                    <a type="btn btn-success" asp-controller="Contact" asp-action="About" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-outline-secondary">View</a>
+                    <a type="btn btn-success" asp-controller="Contact" asp-action="Edit" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <a type="btn btn-success" asp-controller="Contact" asp-action="Delete" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-danger ">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
