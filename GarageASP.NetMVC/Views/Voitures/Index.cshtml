@@ -14,7 +14,7 @@
 
 
 <div class=" container">
-    <h2 class="fw-light py-4 text-center">Voitures recues</h2>
+    <h2 class="fw-light py-4 text-center">Voitures reçues</h2>
 </div>
 <table class="table table-hover table-striped">
     <thead>
@@ -35,9 +35,9 @@
                 <td>@item.Modele</td>
                 <td>@item.Etat</td>
                 <td>
-                    <a type="btn btn-success" asp-controller="Contact" asp-action="About" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-outline-secondary">View</a>
-                    <a type="btn btn-success" asp-controller="Contact" asp-action="Edit" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-outline-secondary">Edit</a>
-                    <a type="btn btn-success" asp-controller="Contact" asp-action="Delete" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-danger ">Delete</a>
+                    <a type="btn btn-success" asp-controller="Voitures" asp-action="About" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-outline-secondary">View</a>
+                    <a type="btn btn-success" asp-controller="Voitures" asp-action="EditVoiture" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <a type="btn btn-success" asp-controller="Voitures" asp-action="Delete" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-danger ">Delete</a>
                 </td>
             </tr>
         }
