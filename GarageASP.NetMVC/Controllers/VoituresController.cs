@@ -20,7 +20,7 @@ namespace GarageASP.NetMVC.Controllers
 
         public async Task<IActionResult> Index() 
         {
-            List<Voiture> voitures = await _garageManagement.GetAllAsync();
+            List<Voiture>? voitures = await _garageManagement.GetAllAsync();
             return View(voitures);
         }
 
