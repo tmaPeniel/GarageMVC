@@ -24,5 +24,18 @@ namespace GarageASP.NetMVC.Controllers
             return View(voitures);
         }
 
+        public async Task<IActionResult> AddVoiture()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddVoiture(Voiture voiture)
+        {
+            if (!ModelState.IsValid) return View(voiture);
+            _garageManagement.Add(voiture);
+            return RedirectToAction("Index");
+
+        }
     }
 }

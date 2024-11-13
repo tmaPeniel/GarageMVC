@@ -1,0 +1,36 @@
+﻿@model Voiture
+
+<h2>Ajouter une voiture</h2>
+
+<form form method="post" asp-action="AddVoiture" class="row g-3" >
+  <div class="col-md-4">
+    <label asp-for="Marque" class="form-label">Marque</label>
+    <input asp-for="Marque" class="form-control" placeholder="Saisir la marque...">
+     <span asp-validation-for="Marque" class="text-danger"></span>
+  </div>
+  <div class="col-md-4">
+    <label asp-for="Modele" class="form-label">Modele</label>
+        <input asp-for="Modele" class="form-control" placeholder="Saisir le modele...">
+        <span asp-validation-for="Modele" class="text-danger"></span>
+  </div>
+  <div class="col-md-6">
+        <label asp-for="Immatriculation" class="form-label">Immatriculation</label>
+        <input asp-for="Immatriculation" class="form-control" placeholder="Saisir la plaque d'immatriculation...">
+        <span asp-validation-for="Immatriculation" class="text-danger"></span>
+  </div>
+  <div class="col-md-3">
+    <label asp-for="Etat" class="form-label">Etat</label>
+    <select asp-for="Etat" class="form-select" >
+      <option selected disabled value="">Choisir...</option>
+      <option>Pris en charge</option>
+      <option>En cours</option>
+      <option>Terminé</option>
+    </select>
+    <span asp-validation-for="Etat" class="text-danger"></span>
+  </div>
+  
+  <div class="col-12">
+     <button class="btn btn-primary float-right mt-3" type="submit">Valider</button>
+        <a asp-controller="Voitures" asp-action="Index" class="btn btn-secondary float-right mt-3">Retour</a>
+  </div>
+</form>
