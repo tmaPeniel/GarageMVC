@@ -33,7 +33,20 @@
                 <th scope="row">@item.Immatriculation</th>
                 <td>@item.Marque</td>
                 <td>@item.Modele</td>
-                <td>@item.Etat</td>
+                <td>
+                    @if (item.Etat == "Pris en charge")
+                    {
+                        <button class="btn btn-primary">Pris en charge</button>
+                    }
+                    else if (item.Etat == "En cours")
+                    {
+                        <button class="btn btn-warning">En cours</button>
+                    }
+                    else if (item.Etat == "Terminé")
+                    {
+                        <button class="btn btn-success">Terminé</button>
+                    }
+                </td>
                 <td>
                     <a type="btn btn-success" asp-controller="Car" asp-action="DetailCar" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-outline-secondary">View</a>
                     <a type="btn btn-success" asp-controller="Car" asp-action="EditCar" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-outline-secondary">Edit</a>

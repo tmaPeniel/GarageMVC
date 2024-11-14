@@ -1,0 +1,32 @@
+﻿@using GarageASP.NetMVC.ViewModels
+@model Car
+
+<h2>Modifier l'état de la @Model.Marque @Model.Modele</h2>
+
+<form form method="post" asp-action="DeleteCar" class="row g-3">
+    <div class="col-md-4">
+        <label asp-for="Marque" class="form-label">Marque</label>
+        <input asp-for="Marque" class="form-control" readonly>
+        <span asp-validation-for="Marque" class="text-danger"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="Modele" class="form-label">Modele</label>
+        <input asp-for="Modele" class="form-control" readonly>
+        <span asp-validation-for="Modele" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Immatriculation" class="form-label">Immatriculation</label>
+        <input asp-for="Immatriculation" class="form-control" readonly>
+        <span asp-validation-for="Immatriculation" class="text-danger"></span>
+    </div>
+    <div class="col-md-2">
+        <label asp-for="Etat" class="form-label">Etat</label>
+        <input asp-for="Etat" class="form-control" readonly>
+        <span asp-validation-for="Etat" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-danger  float-right mt-3" type="submit">Valider</button>
+        <a asp-controller="Car" asp-action="Index" class="btn btn-secondary float-right mt-3">Retour</a>
+    </div>
+</form>

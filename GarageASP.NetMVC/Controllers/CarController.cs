@@ -8,12 +8,14 @@ using Microsoft.EntityFrameworkCore;
 using GarageASP.NetMVC.Models;
 using GarageASP.NetMVC.Interfaces;
 using GarageASP.NetMVC.ViewModels;
+using System.Runtime.ConstrainedExecution;
 
 namespace GarageASP.NetMVC.Controllers
 {
     public class CarController : Controller
     {
         private IGarageManagement _garageManagement;
+         
         public CarController(IGarageManagement garageManagement)
         {
             _garageManagement = garageManagement;
@@ -33,6 +35,11 @@ namespace GarageASP.NetMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> AddCar(Car voiture)
         {
+            if (_garageManagement.CarExists(voiture.Immatriculation))
+            {
+                ModelState.AddModelError("Immatriculation", "Cette immatriculation existe déjà.");
+                return View(voiture);
+            }
             if (!ModelState.IsValid) return View(voiture);
             _garageManagement.Add(voiture);
             return RedirectToAction("Index");
@@ -79,6 +86,23 @@ namespace GarageASP.NetMVC.Controllers
             var voiture = await _garageManagement.GetVoitureByIdAsync(id);
             if (voiture == null) return View("Error");
             return View(voiture);
+        }
+
+        public async Task<IActionResult> DeleteCar(string id)
+        {
+            var voiture = await _garageManagement.GetVoitureByIdAsync(id);
+            if (voiture == null) return View("Error");
+            return View(voiture);
+        }
+
+        [HttpPost, ActionName("DeleteCar")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var voiture = await _garageManagement.GetVoitureByIdAsync(id);
+            if (voiture == null) return View("Error");
+
+            _garageManagement.Delete(voiture);
+            return RedirectToAction("Index");
         }
     }
 }
