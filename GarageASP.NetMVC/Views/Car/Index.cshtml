@@ -1,4 +1,4 @@
-﻿@model List<Voiture>
+﻿@model List<Car>
 
 <section class="py-5 text-center container">
     <div class="row py-lg-5">
@@ -6,7 +6,7 @@
             <h1 class="fw-light">Mon Dashboard</h1>
             <p class="lead text-body-secondary">Application de gestion de voiture pour garagiste.</p>
             <p>
-                <a asp-controller="Voitures" asp-action="AddVoiture" class="btn btn-primary my-2">Ajouter une nouvelle voiture</a>
+                <a asp-controller="Car" asp-action="AddCar" class="btn btn-primary my-2">Ajouter une nouvelle voiture</a>
             </p>
         </div>
     </div>
@@ -35,9 +35,9 @@
                 <td>@item.Modele</td>
                 <td>@item.Etat</td>
                 <td>
-                    <a type="btn btn-success" asp-controller="Voitures" asp-action="About" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-outline-secondary">View</a>
-                    <a type="btn btn-success" asp-controller="Voitures" asp-action="EditVoiture" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-outline-secondary">Edit</a>
-                    <a type="btn btn-success" asp-controller="Voitures" asp-action="Delete" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-danger ">Delete</a>
+                    <a type="btn btn-success" asp-controller="Car" asp-action="About" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-outline-secondary">View</a>
+                    <a type="btn btn-success" asp-controller="Car" asp-action="EditCar" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <a type="btn btn-success" asp-controller="Car" asp-action="Delete" asp-route-id="@item.Immatriculation" class="btn btn-sm btn-danger ">Delete</a>
                 </td>
             </tr>
         }

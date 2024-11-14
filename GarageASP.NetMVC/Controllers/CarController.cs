@@ -11,38 +11,38 @@ using GarageASP.NetMVC.ViewModels;
 
 namespace GarageASP.NetMVC.Controllers
 {
-    public class VoituresController : Controller
+    public class CarController : Controller
     {
         private IGarageManagement _garageManagement;
-        public VoituresController(IGarageManagement garageManagement)
+        public CarController(IGarageManagement garageManagement)
         {
             _garageManagement = garageManagement;
         }
 
         public async Task<IActionResult> Index() 
         {
-            List<Voiture>? voitures = await _garageManagement.GetAllAsync();
+            List<Car>? voitures = await _garageManagement.GetAllAsync();
             return View(voitures);
         }
 
-        public async Task<IActionResult> AddVoiture()
+        public async Task<IActionResult> AddCar()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddVoiture(Voiture voiture)
+        public async Task<IActionResult> AddCar(Car voiture)
         {
             if (!ModelState.IsValid) return View(voiture);
             _garageManagement.Add(voiture);
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> EditVoiture(string id)
+        public async Task<IActionResult> EditCar(string id)
         {
             var voiture = await _garageManagement.GetVoitureByIdAsync(id);
             if (voiture == null) return View("Error");
-            var voitureVM = new EditVoitureModel
+            var voitureVM = new EditCarModel
             {
                 Immatriculation= voiture.Immatriculation,
                 Modele= voiture.Modele,
@@ -53,7 +53,7 @@ namespace GarageASP.NetMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditVoiture(string id, EditVoitureModel voitureVM)
+        public async Task<IActionResult> EditCar(string id, EditCarModel voitureVM)
         {
             
             if (!ModelState.IsValid)
@@ -62,7 +62,7 @@ namespace GarageASP.NetMVC.Controllers
                 return View("EditVoiture", voitureVM);
             };
 
-            var voiture = new Voiture
+            var voiture = new Car
             {
                 Immatriculation= id,
                 Modele = voitureVM.Modele,

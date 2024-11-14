@@ -15,14 +15,14 @@ public partial class GarageManagementContext : DbContext
     {
     }
 
-    public virtual DbSet<Voiture> Voitures { get; set; }
+    public virtual DbSet<Car> Voitures { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("name=GMConnection");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Voiture>(entity =>
+        modelBuilder.Entity<Car>(entity =>
         {
             entity.HasKey(e => e.Immatriculation).HasName("PK__Voiture__E15BDED31EB5E29A");
 

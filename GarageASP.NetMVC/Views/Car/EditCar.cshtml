@@ -1,9 +1,9 @@
 ﻿@using GarageASP.NetMVC.ViewModels
-@model EditVoitureModel
+@model EditCarModel
 
 <h2>Modifier les infos d'une voiture</h2>
 
-<form form method="post" asp-action="EditVoiture" class="row g-3">
+<form form method="post" asp-action="EditCar" class="row g-3">
     <div class="col-md-4">
         <label asp-for="Marque" class="form-label">Marque</label>
         <input asp-for="Marque" class="form-control" placeholder="Saisir la marque...">
@@ -32,6 +32,6 @@
 
     <div class="col-12">
         <button class="btn btn-primary float-right mt-3" type="submit">Valider</button>
-        <a asp-controller="Voitures" asp-action="Index" class="btn btn-secondary float-right mt-3">Retour</a>
+        <a asp-controller="Car" asp-action="Index" class="btn btn-secondary float-right mt-3">Retour</a>
     </div>
 </form>

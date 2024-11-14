@@ -4,15 +4,15 @@ namespace GarageASP.NetMVC.Interfaces
 {
     public interface IGarageManagement
     {
-        public Task<List<Voiture>> GetAllAsync();
-        public Task<Voiture> GetVoitureByIdAsync(string id);
+        public Task<List<Car>> GetAllAsync();
+        public Task<Car> GetVoitureByIdAsync(string id);
 
-        public Task<List<Voiture>> GetVoitureByMarque(string marque);
-        public Task<List<Voiture>> GetVoituresByModel(string model);
+        public Task<List<Car>> GetVoitureByMarque(string marque);
+        public Task<List<Car>> GetVoituresByModel(string model);
 
-        public bool Add(Voiture voiture);
-        public bool Update(Voiture voiture);
-        public bool Delete(Voiture voiture);
+        public bool Add(Car voiture);
+        public bool Update(Car voiture);
+        public bool Delete(Car voiture);
         public bool Save();
     }
 }
