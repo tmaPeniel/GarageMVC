@@ -1,7 +1,7 @@
 ﻿@using GarageASP.NetMVC.ViewModels
 @model Car
 
-<h2>Modifier l'état de la @Model.Marque @Model.Modele</h2>
+<h2>Voulez vous retirer la @Model.Marque @Model.Modele ?</h2>
 
 <form form method="post" asp-action="DeleteCar" class="row g-3">
     <div class="col-md-4">
@@ -26,7 +26,7 @@
     </div>
 
     <div class="col-12">
-        <button class="btn btn-danger  float-right mt-3" type="submit">Valider</button>
+        <button class="btn btn-danger  float-right mt-3" type="submit">Retirer</button>
         <a asp-controller="Car" asp-action="Index" class="btn btn-secondary float-right mt-3">Retour</a>
     </div>
 </form>
