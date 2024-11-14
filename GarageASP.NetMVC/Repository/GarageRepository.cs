@@ -13,34 +13,34 @@ namespace GarageASP.NetMVC.Repository
             _context = context;
         }
 
-        public bool Add(Voiture voiture)
+        public bool Add(Car voiture)
         {
             _context.Add(voiture);
             return Save();
         }
 
-        public bool Delete(Voiture voiture)
+        public bool Delete(Car voiture)
         {
             _context.Remove(voiture);
             return Save();
         }
 
-        public async Task<List<Voiture>> GetAllAsync()
+        public async Task<List<Car>> GetAllAsync()
         {
             return await _context.Voitures.ToListAsync();
         }
 
-        public async Task<Voiture> GetVoitureByIdAsync(string id)
+        public async Task<Car> GetVoitureByIdAsync(string id)
         {
             return await _context.Voitures.FirstOrDefaultAsync(x => x.Immatriculation.Contains(id));
         }
 
-        public async Task<List<Voiture>> GetVoitureByMarque(string marque)
+        public async Task<List<Car>> GetVoitureByMarque(string marque)
         {
             return await _context.Voitures.Where(x => x.Marque.Contains(marque)).ToListAsync();
         }
 
-        public async Task<List<Voiture>> GetVoituresByModel(string model)
+        public async Task<List<Car>> GetVoituresByModel(string model)
         {
             return await _context.Voitures.Where(x => x.Modele.Contains(model)).ToListAsync();
         }
@@ -51,7 +51,7 @@ namespace GarageASP.NetMVC.Repository
             return saved > 0 ? true : false;
         }
 
-        public bool Update(Voiture voiture)
+        public bool Update(Car voiture)
         {
             _context.Update(voiture);
             return Save();

@@ -1,8 +1,8 @@
-﻿@model Voiture
+﻿@model Car
 
 <h2>Ajouter une voiture</h2>
 
-<form form method="post" asp-action="AddVoiture" class="row g-3" >
+<form form method="post" asp-action="AddCar" class="row g-3" >
   <div class="col-md-4">
     <label asp-for="Marque" class="form-label">Marque</label>
     <input asp-for="Marque" class="form-control" placeholder="Saisir la marque...">
@@ -31,6 +31,6 @@
   
   <div class="col-12">
      <button class="btn btn-primary float-right mt-3" type="submit">Valider</button>
-        <a asp-controller="Voitures" asp-action="Index" class="btn btn-secondary float-right mt-3">Retour</a>
+        <a asp-controller="Car" asp-action="Index" class="btn btn-secondary float-right mt-3">Retour</a>
   </div>
 </form>

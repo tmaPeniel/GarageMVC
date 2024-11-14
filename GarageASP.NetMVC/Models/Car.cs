@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GarageASP.NetMVC.Models;
 
-public partial class Voiture
+public partial class Car
 {
     [StringLength(6, MinimumLength = 6)]
     [RegularExpression(@"^[A-Z]{2}\d{4}$", ErrorMessage = "L'immatriculation doit être au format 'AA0000'.")]
