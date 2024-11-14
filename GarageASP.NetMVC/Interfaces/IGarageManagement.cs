@@ -10,6 +10,7 @@ namespace GarageASP.NetMVC.Interfaces
         public Task<List<Car>> GetVoitureByMarque(string marque);
         public Task<List<Car>> GetVoituresByModel(string model);
 
+        public bool CarExists(string id);
         public bool Add(Car voiture);
         public bool Update(Car voiture);
         public bool Delete(Car voiture);

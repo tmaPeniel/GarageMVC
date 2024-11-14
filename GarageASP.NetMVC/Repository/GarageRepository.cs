@@ -13,6 +13,11 @@ namespace GarageASP.NetMVC.Repository
             _context = context;
         }
 
+        public bool CarExists(string id)
+        {
+            return _context.Voitures.Any(c => c.Immatriculation == id);
+        }
+
         public bool Add(Car voiture)
         {
             _context.Add(voiture);
