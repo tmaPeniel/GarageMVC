@@ -73,5 +73,12 @@ namespace GarageASP.NetMVC.Controllers
            _garageManagement.Update(voiture);
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> DetailCar(string id)
+        {
+            var voiture = await _garageManagement.GetVoitureByIdAsync(id);
+            if (voiture == null) return View("Error");
+            return View(voiture);
+        }
     }
 }
