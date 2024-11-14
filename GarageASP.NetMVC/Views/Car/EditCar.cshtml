@@ -1,17 +1,17 @@
 ﻿@using GarageASP.NetMVC.ViewModels
 @model EditCarModel
 
-<h2>Modifier les infos d'une voiture</h2>
+<h2>Modifier l'état de la @Model.Marque @Model.Modele</h2>
 
 <form form method="post" asp-action="EditCar" class="row g-3">
     <div class="col-md-4">
         <label asp-for="Marque" class="form-label">Marque</label>
-        <input asp-for="Marque" class="form-control" placeholder="Saisir la marque...">
+        <input asp-for="Marque" class="form-control" readonly>
         <span asp-validation-for="Marque" class="text-danger"></span>
     </div>
     <div class="col-md-4">
         <label asp-for="Modele" class="form-label">Modele</label>
-        <input asp-for="Modele" class="form-control" placeholder="Saisir le modele...">
+        <input asp-for="Modele" class="form-control" readonly>
         <span asp-validation-for="Modele" class="text-danger"></span>
     </div>
     <div class="col-md-6">
