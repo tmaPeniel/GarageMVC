@@ -4,6 +4,16 @@
 <h2>Voulez vous retirer la @Model.Marque @Model.Modele ?</h2>
 
 <form form method="post" asp-action="DeleteCar" class="row g-3">
+    <div class="col-md-2">
+        <label asp-for="Client.Name" class="form-label">Nom du propietaire</label>
+        <input asp-for="Client.Name" class="form-control" readonly>
+        <span asp-validation-for="Client.Name" class="text-danger"></span>
+    </div>
+    <div class="col-md-2">
+        <label asp-for="Client.Mail" class="form-label">Etat</label>
+        <input asp-for="Client.Mail" class="form-control" readonly>
+        <span asp-validation-for="Client.Mail" class="text-danger"></span>
+    </div>
     <div class="col-md-4">
         <label asp-for="Marque" class="form-label">Marque</label>
         <input asp-for="Marque" class="form-control" readonly>
@@ -24,6 +34,7 @@
         <input asp-for="Etat" class="form-control" readonly>
         <span asp-validation-for="Etat" class="text-danger"></span>
     </div>
+    
 
     <div class="col-12">
         <button class="btn btn-danger  float-right mt-3" type="submit">Retirer</button>

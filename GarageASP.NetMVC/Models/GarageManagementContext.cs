@@ -16,6 +16,7 @@ public partial class GarageManagementContext : DbContext
     }
 
     public virtual DbSet<Car> Voitures { get; set; }
+    public DbSet<Client> Clients { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("name=GMConnection");

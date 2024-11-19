@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GarageASP.NetMVC.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace GarageASP.NetMVC.ViewModels
 {
@@ -16,5 +17,8 @@ namespace GarageASP.NetMVC.ViewModels
 
         [Required]
         public string? Etat { get; set; }
+
+        public int ClientID { get; set; }
+
     }
 }
