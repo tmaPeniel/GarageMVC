@@ -37,7 +37,7 @@ namespace GarageASP.NetMVC.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             Client client = await _clientRepository.GetClientById(id);
-            if(client == null) {return View("No client with this ID");}
+            if(client == null) { return Content( "No client with this ID" ); }
             return View(client);
         }
 
@@ -46,6 +46,21 @@ namespace GarageASP.NetMVC.Controllers
         {
             if (!ModelState.IsValid) return View(client);
             _clientRepository.Update(client);
+            return RedirectToAction("Index");
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            Client client = await _clientRepository.GetClientById(id);
+            if (client == null) { return Content("No client with this ID"); }
+            return View(client);
+        }
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteClient(int id)
+        {
+            var client = await _clientRepository.GetClientById(id);
+            if (client == null) return Content("No client with this ID");
+
+           _clientRepository.Delete(client);
             return RedirectToAction("Index");
         }
     }
