@@ -20,5 +20,18 @@ namespace GarageASP.NetMVC.Controllers
             List<Client> clients = await _clientRepository.GetAllClient();
             return View(clients);
         }
+
+        public async Task<IActionResult> Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(Client client)
+        {
+            if(!ModelState.IsValid) return View(client);
+            _clientRepository.Add(client);
+            return RedirectToAction("Index");
+        }
     }
 }
