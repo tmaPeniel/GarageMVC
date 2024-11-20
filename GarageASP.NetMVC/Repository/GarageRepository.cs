@@ -8,11 +8,12 @@ namespace GarageASP.NetMVC.Repository
     public class GarageRepository : IGarageManagement
     {
         private readonly GarageManagementContext _context;
+        
         public GarageRepository(GarageManagementContext context)
         {
             _context = context;
+            
         }
-
         public bool CarExists(string id)
         {
             return _context.Voitures.Any(c => c.Immatriculation == id);
@@ -32,12 +33,12 @@ namespace GarageASP.NetMVC.Repository
 
         public async Task<List<Car>> GetAllAsync()
         {
-            return await _context.Voitures.ToListAsync();
+            return await _context.Voitures.Include(c=>c.Client).ToListAsync(); //Si j'associe à une table et que je veux les deux infos (Voiture et client)
         }
 
         public async Task<Car> GetVoitureByIdAsync(string id)
         {
-            return await _context.Voitures.FirstOrDefaultAsync(x => x.Immatriculation.Contains(id));
+            return await _context.Voitures.Where(x => x.Immatriculation.Contains(id)).Include(c=>c.Client).FirstOrDefaultAsync();
         }
 
         public async Task<List<Car>> GetVoitureByMarque(string marque)
@@ -61,5 +62,7 @@ namespace GarageASP.NetMVC.Repository
             _context.Update(voiture);
             return Save();
         }
+
+       
     }
 }

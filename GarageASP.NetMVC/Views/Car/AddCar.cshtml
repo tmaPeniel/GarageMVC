@@ -28,6 +28,19 @@
     </select>
     <span asp-validation-for="Etat" class="text-danger"></span>
   </div>
+
+    <div class="col-md-3">
+        <label asp-for="ClientID" class="form-label">Client</label>
+        <select asp-for="ClientID" class="form-select">
+            <option selected disabled value="">Choisir...</option>
+            @foreach(Client item in ViewBag.Client)
+            {
+                <option value="@item.Id">@item.Name @item.Surname</option>
+            }
+        </select>
+        <span asp-validation-for="ClientID" class="text-danger"></span>
+    </div>
+   
   
   <div class="col-12">
      <button class="btn btn-primary float-right mt-3" type="submit">Valider</button>

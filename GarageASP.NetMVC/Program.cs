@@ -10,6 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<GarageManagementContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("GMConnection")));
 builder.Services.AddScoped<IGarageManagement, GarageRepository>();
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
 
 var app = builder.Build();
 
