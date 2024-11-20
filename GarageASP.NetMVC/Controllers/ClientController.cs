@@ -33,5 +33,20 @@ namespace GarageASP.NetMVC.Controllers
             _clientRepository.Add(client);
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            Client client = await _clientRepository.GetClientById(id);
+            if(client == null) {return View("No client with this ID");}
+            return View(client);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, Client client)
+        {
+            if (!ModelState.IsValid) return View(client);
+            _clientRepository.Update(client);
+            return RedirectToAction("Index");
+        }
     }
 }
