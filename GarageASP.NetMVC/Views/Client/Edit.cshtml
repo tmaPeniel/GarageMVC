@@ -1,0 +1,27 @@
+﻿@model Client
+
+<h2>Modifier Client</h2>
+
+<form form method="post" asp-action="Edit" class="row g-3">
+    <div class="col-md-4">
+        <label asp-for="Name" class="form-label">Nom</label>
+        <input asp-for="Name" class="form-control" placeholder="Saisir le nom...">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="Surname" class="form-label">Prénpm</label>
+        <input asp-for="Surname" class="form-control" placeholder="Saisir le prénom...">
+        <span asp-validation-for="Surname" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Mail" class="form-label">Email</label>
+        <input asp-for="Mail" class="form-control" placeholder="Saisir le mail...">
+        <span asp-validation-for="Mail" class="text-danger"></span>
+    </div>
+
+
+    <div class="col-12">
+        <button class="btn btn-primary float-right mt-3" type="submit">Valider</button>
+        <a asp-controller="Client" asp-action="Index" class="btn btn-secondary float-right mt-3">Retour</a>
+    </div>
+</form>
