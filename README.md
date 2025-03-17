@@ -21,7 +21,7 @@ Garage Manager est une application web développée en **ASP.NET Core MVC**, per
 
 ### 🔧 Prérequis
 
-- .NET 9 installé sur votre machine
+- .NET 8 installé sur votre machine
 - SQL Server pour la base de données
 
 ### 📥 Clonage du projet
