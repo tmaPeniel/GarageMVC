@@ -1,4 +1,4 @@
-# 🚗 Garage Manager
+# 🚗 Garage Manager MVC
 
 Garage Manager est une application web développée en **ASP.NET Core MVC**, permettant la gestion des voitures et de leurs propriétaires. Elle prend en charge les opérations CRUD et facilite l’organisation des véhicules d’un garage.
 
